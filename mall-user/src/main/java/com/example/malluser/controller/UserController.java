@@ -39,17 +39,18 @@ public class UserController {
     public R  findOrderByUserId(@PathVariable("id") Integer id) {
         log.info("根据userId:"+id+"查询订单信息");
         // RestTemplate调用
-//        String url = "http://localhost:8020/order/findOrderByUserId/"+id;
+//        String url = "http://localhost:8020/orders/findOrderByUserId/"+id;
 //        R result = restTemplate.getForObject(url,R.class);
 
         //模拟ribbon实现
         //String url = getUri("mall-order")+"/order/findOrderByUserId/"+id;
         // 添加@LoadBalanced
-        String url = "http://mall-order/order/findOrderByUserId/"+id;
-        R result = restTemplate.getForObject(url,R.class);
+//        String url = "http://mall-orders/order/findOrderByUserId/"+id;
+//        R result = restTemplate.getForObject(url,R.class);
 
+        //实际使用的一种方法
         //feign调用   封装 ribbon调用   rpc调用 http
-        //R result = orderFeignService.findOrderByUserId(id);
+        R result = orderFeignService.findOrderByUserId(id);
 
         return result;
     }

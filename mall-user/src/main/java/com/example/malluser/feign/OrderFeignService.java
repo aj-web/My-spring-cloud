@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * @author Fox
  */
-@FeignClient(value = "mall-order", path = "/order")
+@FeignClient(value = "mall-orders", path = "/order")
 public interface OrderFeignService {
 
     @RequestMapping("/findOrderByUserId/{userId}")
