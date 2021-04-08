@@ -1,0 +1,21 @@
+server:
+  port: 8889
+
+#\u914D\u7F6E\u5FAE\u670D\u52A1\u540D\u79F0
+spring:
+  application:
+    name: producter-center
+
+  #\u914D\u7F6Enacos\u6CE8\u518C\u4E2D\u5FC3\u5730\u5740
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.214.1:8848
+
+
+#\u66B4\u9732actuator\u7AEF\u70B9
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
