@@ -1,16 +1,16 @@
 #spring.application.name=user-center
-##zookeeper \u8FDE\u63A5\u5730\u5740 \uFF0C
-##\u5982\u679C\u4F7F\u7528\u4E86 spring cloud zookeeper config\u8FD9\u4E2A\u914D\u7F6E\u5E94\u8BE5\u914D\u7F6E\u5728 bootstrap.yml/bootstrap.properties\u4E2D
+##zookeeper 连接地址
+##如果使用了spring cloud zookeeper config这个配置应该配置在 bootstrap.yml/bootstrap.properties中
 #spring.cloud.zookeeper.connect-string=192.168.109.200:2181
-##\u5C06\u672C\u670D\u52A1\u6CE8\u518C\u5230zookeeper\uFF0C\u5982\u679C\u4E0D\u5E0C\u671B\u81EA\u5DF1\u88AB\u53D1\u73B0\u53EF\u4EE5\u914D\u7F6E\u4E3Afalse, \u9ED8\u8BA4\u4E3A true
+##将本服务注册到zookeeper，如果不希望自己被发现可以配置为false, 默认为 true
 #spring.cloud.zookeeper.discovery.register=true
 
-#\u914D\u7F6E\u5FAE\u670D\u52A1\u540D\u79F0
+#配置微服务名称
 spring:
   application:
     name: user-center
 
-  #\u914D\u7F6Enacos\u6CE8\u518C\u4E2D\u5FC3\u5730\u5740
+#配置nacos注册中心地址
   cloud:
     nacos:
       discovery:
@@ -18,16 +18,16 @@ spring:
 
 ribbon:
   eager-load:
-    # \u5F00\u542Fribbon\u9965\u997F\u52A0\u8F7D
+    # 开启ribbon饥饿加载
     enabled: true
-    # \u914D\u7F6Emall-user\u4F7F\u7528ribbon\u9965\u997F\u52A0\u8F7D\uFF0C\u591A\u4E2A\u4F7F\u7528\u9017\u53F7\u5206\u9694
+    # 配置mall-user使用ribbon饥饿加载，多个使用逗号分隔
     clients: producter-center
 
 #logging:
 #  level:
 #    com.example.usercenter.feign: debug
 
-#\u66B4\u9732actuator\u7AEF\u70B9
+#暴露actuator端点
 management:
   endpoints:
     web:
@@ -42,13 +42,13 @@ management:
 
 
 feign:
-  # \u914D\u7F6E GZIP \u6765\u538B\u7F29\u6570\u636E
+  # 配置 GZIP 来压缩数据
   compression:
     request:
       enabled: true
-      # \u914D\u7F6E\u538B\u7F29\u7684\u7C7B\u578B
+      # 配置压缩的类型
       mime-types: text/xml,application/xml,application/json
-      # \u6700\u5C0F\u538B\u7F29\u503C
+      # 最小压缩值
       min-request-size: 2048
     response:
       enabled: true
