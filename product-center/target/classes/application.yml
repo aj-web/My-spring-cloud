@@ -1,12 +1,12 @@
 server:
   port: 8889
 
-#\u914D\u7F6E\u5FAE\u670D\u52A1\u540D\u79F0
+#服务名称
 spring:
   application:
     name: producter-center
 
-  #\u914D\u7F6Enacos\u6CE8\u518C\u4E2D\u5FC3\u5730\u5740
+  #Nacos server地址
   cloud:
     nacos:
       discovery:
@@ -19,3 +19,4 @@ management:
     web:
       exposure:
         include: '*'
+
